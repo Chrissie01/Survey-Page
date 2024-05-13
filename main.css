@@ -1,0 +1,78 @@
+body{
+	background-color: white;
+	font-family: Arial;
+	font-size: 15px;
+}
+
+h1{
+	color: black;
+	font-size: 15px;
+}
+
+h2{
+	color: blue;
+	font-size: 10px;
+}
+
+h3{
+	color: black;
+	font-size: 10px;
+}
+
+h4{
+	color: black;
+	font-size: 15px;
+}
+
+
+form{
+	margin: 50px auto;
+	padding: 30px 30px;
+	background-color: white;
+	
+}
+
+.form-control{
+	text-align: left;
+	margin-bottom: 25px;
+	margin-left: 220px;
+}
+
+.form-control input,
+.form-control select,
+.form-control textarea{
+	display: block;
+	padding: 10px;
+	
+}
+
+.form-control input[type="radio"],
+.form-control input[type="checkbox"]{
+	display: inline-block;
+	width: auto;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	border: 1px solid blue;
+	text-align: center;
+	padding: 8px;
+	width: calc(100% / 6);
+}
+
+th {	
+	background-color: white;
+	padding: 8px; 
+}
+
+button {
+	display: block; 
+	margin: 30px auto; 
+	padding: 10px 20px;
+	background-color: blue;
+	color: white;
+}

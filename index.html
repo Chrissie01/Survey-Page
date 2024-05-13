@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="js/main.js"></script>
+	<link href="css/main.css" rel="stylesheet">
+	
+</head>
+
+<body>
+	<form id="surveyForm" action="submit_survey.php" method="post" onsubmit="return validateForm()">
+		<a href="view_result.html">
+			<div style="display: flex; justify-content: space-between;">
+				<h1 style="text-align: left; margin: 0;">.Surveys</h1>
+				<h2 style="text-align: center; margin: 0;">FILL OUT SURVEY</h2>
+				<h3 style="text-align: right; margin: 0;">VIEW SURVEY RESULTS</h3>
+			</div>
+		</a>
+		<h4 style="text-align: left" >Personal Details</h4>
+		
+		<div class="form-control">
+			<label style="display: block; margin-bottom: 10px"> Full Names</label>
+			<input type="text" name="Name" placeholder=" ">
+		</div>
+		
+		<div class="form-control">
+			<label style="display: block; margin-bottom: 10px">Email</label>
+			<input type="text" name="Email" placeholder=" ">
+		</div>
+		
+		<div class="form-control">
+			<label style="display: block; margin-bottom: 10px">Date of Birth</label>
+			<input type="text" name="DateOfBirth" placeholder=" ">
+		</div>
+		
+		<div class="form-control">
+			<label style="display: block; margin-bottom: 10px">Contact Number</label>
+			<input type="text" name="ContactNumber" placeholder=" ">
+		</div>
+
+		
+		<div style="display: flex; align-items: center; margin-bottom: 30px;">
+			<label style="display: inline-block; margin-bottom: 10px;">What is your favourite food?</label>
+			<input type="checkbox" name="select">
+			<label for="pizza" style="margin-left: 5px; margin-right: 10px;">Pizza</label>
+			<input type="checkbox" name="select">
+			<label for="pasta" style="margin-left: 5px; margin-right: 10px;">Pasta</label>
+			<input type="checkbox" name="select">
+			<label for="pap_wors" style="margin-left: 5px; margin-right: 10px;">Pap and Wors</label>
+			<input type="checkbox" name="select">
+			<label for="other" style="margin-left: 5px;">Other</label>
+		</div>
+
+
+		
+		<table>
+			<div style="display: block; margin-bottom: 20px; text-align: left;">Please rate your level of agreement on a scale from 1 to 5, with 1 being "strongly agree" and 5 being "strongly disagree".</div>
+			<tr>
+			<th></th>
+				<th>Strongly Agree</th>
+				<th>Agree</th>
+				<th>Neutral</th>
+				<th>Disagree</th>
+				<th>Strongly Disagree</th>
+			</tr>
+	  
+			<tr>
+			<th>I like to watch movies</th>
+				<td><input type="radio" name="movies" value="1"></td>
+				<td><input type="radio" name="movies" value="2"></td>
+				<td><input type="radio" name="movies" value="3"></td>
+				<td><input type="radio" name="movies" value="4"></td>
+				<td><input type="radio" name="movies" value="5"></td>
+			</tr>
+	  
+			<tr>
+			<th>I like to listen to radio</th>
+				<td><input type="radio" name="radio" value="1"></td>
+				<td><input type="radio" name="radio" value="2"></td>
+				<td><input type="radio" name="radio" value="3"></td>
+				<td><input type="radio" name="radio" value="4"></td>
+				<td><input type="radio" name="radio" value="5"></td>
+			</tr>
+	  
+			<tr>
+			<th>I like to eat out</th>
+				<td><input type="radio" name="eatOut" value="1"></td>
+				<td><input type="radio" name="eatOut" value="2"></td>
+				<td><input type="radio" name="eatOut" value="3"></td>
+				<td><input type="radio" name="eatOut" value="4"></td>
+				<td><input type="radio" name="eatOut" value="5"></td>
+			</tr>
+	  
+			<tr>
+			<th>I like to watch TV</th>
+				<td><input type="radio" name="watchTV" value="1"></td>
+				<td><input type="radio" name="watchTV" value="2"></td>
+				<td><input type="radio" name="watchTV" value="3"></td>
+				<td><input type="radio" name="watchTV" value="4"></td>
+				<td><input type="radio" name="watchTV" value="5"></td>
+			</tr>
+		</table>
+		<button type="submit" id="submitBtn">Submit</button>
+		<script>
+			$(document).ready(function() {
+				$("#surveyForm").submit(function(event) {
+					event.preventDefault(); // Prevent default form submission
+
+					// Serialize form data
+					var formData = $(this).serialize();
+
+					// Send AJAX request
+					$.ajax({
+						type: "POST",
+						url: "submit_survey.php",
+						data: formData,
+						success: function() {
+							console.log("AJAX request successful");
+							// Redirect to view_result.html
+							window.location.href = "view_result.html";
+						}
+						}
+					});
+				});
+			});
+		</script>
+	</form>
+
+</body>
+</html>

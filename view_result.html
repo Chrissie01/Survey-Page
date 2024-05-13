@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results</title>
+    <style type="text/css">
+        body {
+            background-color: white;
+            font-family: Arial;
+            font-size: 15px;
+        }
+        h1 {
+            color: black;
+            font-size: 15px;
+        }
+        h2 {
+            color: black;
+            font-size: 10px;
+        }
+        h3 {
+            color: blue;
+            font-size: 10px;
+        }
+        h4 {
+            color: black;
+            font-size: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        table {
+            margin: 0 auto; /* Center horizontally */
+        }
+        tr:not(:first-child) {
+            margin-top: 20px;
+        }
+        td {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<a href="index.html">
+	<h2 style="text-align: center; margin: 0;">FILL OUT SURVEY</h2>
+</a>
+<div style="display: flex; justify-content: space-between;">
+  <h1 style="text-align: left; margin: 0;">.Surveys</h1>
+  <h3 style="text-align: right; margin: 0;">VIEW SURVEY RESULTS</h3>
+</div>
+
+
+<div>
+    <h4 style="text-align: center; margin: 70px;">Survey Results</h4>
+</div>
+
+<table>
+    <tr>
+      <td>Total number of surveys:</td>
+      <td><?php echo isset($_SESSION['totalSurveys']) ? $_SESSION['totalSurveys'] : ''; ?></td>
+    </tr>
+    <tr>
+      <td>Average Age:</td>
+      <td><?php echo isset($_SESSION['averageAge']) ? $_SESSION['averageAge'] : ''; ?></td>
+    </tr>
+    <tr>
+      <td>Oldest person who participated in survey:</td>
+      <td><?php echo isset($_SESSION['maxAge']) ? $_SESSION['maxAge'] : ''; ?></td>
+    </tr>
+    <tr>
+      <td>Youngest person who participated in survey:</td>
+      <td><?php echo isset($_SESSION['minAge']) ? $_SESSION['minAge'] : ''; ?></td>
+    </tr>
+    <tr>
+      <td>Percentage of people who Like Pizza:</td>
+      <td><?php echo isset($_SESSION['percentagePizzaLovers']) ? $_SESSION['percentagePizzaLovers'] . '%' : ''; ?></td>
+    </tr>
+    <tr>
+      <td>Percentage of people who Like Pasta:</td>
+      <td><?php echo isset($_SESSION['percentagePastaLovers']) ? $_SESSION['percentagePastaLovers'] . '%' : ''; ?></td>
+    </tr>
+    <tr>
+      <td>Percentage of people who Like Pap and Wors:</td>
+      <td><?php echo isset($_SESSION['percentagePapAndWorsLovers']) ? $_SESSION['percentagePapAndWorsLovers'] . '%' : ''; ?></td>
+    </tr>
+    <tr>
+      <td>People who like to watch movies:</td>
+      <td><?php echo isset($_SESSION['averageOfRating']) ? $_SESSION['averageOfRating'] : ''; ?></td>
+    </tr>
+    <tr>
+      <td>People who like to listen to radio:</td>
+      <td><?php echo isset($_SESSION['averageOfRating']) ? $_SESSION['averageOfRating'] : ''; ?></td>
+    </tr>
+    <tr>
+      <td>People who like to eat out:</td>
+      <td><?php echo isset($_SESSION['averageOfRating']) ? $_SESSION['averageOfRating'] : ''; ?></td>
+    </tr>
+    <tr>
+      <td>People who like to watch TV:</td>
+      <td><?php echo isset($_SESSION['averageOfRating']) ? $_SESSION['averageOfRating'] : ''; ?></td>
+    </tr>
+</table>
+</body>
+</html>
